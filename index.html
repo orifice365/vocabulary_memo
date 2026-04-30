@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Note</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>語彙を集めるメモ</h1>
+    </header>
+
+    <main class="container">
+        <section id="page-memo">
+            <div class="input-card">
+                <textarea id="memo-input" placeholder="ひとりごとをここに……"></textarea>
+                <button id="save-btn">保存する</button>
+            </div>
+            <div id="memo-list" class="memo-list"></div>
+        </section>
+
+        <section id="page-analysis" style="display: none;">
+            <div class="period-selector" style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <button class="period-btn active" data-period="all" onclick="setPeriod('all')">全期間</button>
+                <button class="period-btn" data-period="month" onclick="setPeriod('month')">今月</button>
+                <button class="period-btn" data-period="week" onclick="setPeriod('week')">今週</button>
+            </div>
+
+            <div class="analysis-card">
+                <h3>Word Cloud</h3>
+                <div id="word-cloud" style="width: 100%; height: 300px; background: #fff; border-radius: 8px;"></div>
+            </div>
+            <div class="analysis-card card-noun">
+                <h3>よく使う名詞</h3>
+                <div id="analysis-result"></div>
+            </div>
+            <div class="analysis-card card-verb">
+                <h3>よく使う動詞</h3>
+                <div id="verb-analysis-result"></div>
+            </div>
+            <div class="analysis-card card-adj">
+                <h3>よく使う形容詞・形容動詞</h3>
+                <div id="adj-analysis-result"></div>
+            </div>
+            <div class="analysis-card card-adv">
+                <h3>よく使う副詞</h3>
+                <div id="adv-analysis-result"></div>
+            </div>
+
+
+
+            <div class="analysis-card">
+                <h3>心の天気（感情スコア）</h3>
+                <div id="sentiment-score" style="font-size: 2.5rem; text-align: center; margin: 15px 0;">--</div>
+                <p id="sentiment-label" style="text-align: center; color: var(--text-sub); font-size: 0.9rem;"></p>
+            </div>
+        </section>
+    </main>
+
+    <nav class="tab-bar">
+        <button class="nav-item active" onclick="showPage('memo')">メモ</button>
+        <button class="nav-item" onclick="showPage('analysis')">分析</button>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/build/kuromoji.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
