@@ -10,6 +10,22 @@ function showPage(pageId) {
     });
 }
 
+function toggleMenu() {
+    const menu = document.getElementById('side-menu');
+    const overlay = document.getElementById('menu-overlay');
+    
+    // openクラスを付け外しする
+    menu.classList.toggle('open');
+    overlay.classList.toggle('open');
+    
+    // メニューが開いているときは背面のスクロールを止める（綺麗めアプリの作法）
+    if (menu.classList.contains('open')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+}
+
 // メモ保存機能
 document.getElementById('save-btn').addEventListener('click', () => {
     const input = document.getElementById('memo-input');
@@ -391,13 +407,13 @@ function analyzeSentiment(tokens) {
 
     // スコアに応じた絵文字とラベル
     if (resultScore > 0.1) {
-        scoreElem.innerText = "😊 " + resultScore;
+        scoreElem.innerText = resultScore;
         labelElem.innerText = "ポジティブな傾向があります";
     } else if (resultScore < -0.1) {
-        scoreElem.innerText = "😔 " + resultScore;
-        labelElem.innerText = "少しお疲れかもしれません";
+        scoreElem.innerText = resultScore;
+        labelElem.innerText = "ネガティブな傾向があります";
     } else {
-        scoreElem.innerText = "😐 0.00";
+        scoreElem.innerText = "0.00";
         labelElem.innerText = "ニュートラルな状態です";
     }
 }

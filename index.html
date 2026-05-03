@@ -13,9 +13,59 @@
 </head>
 
 <body>
+    <!-- メニューの背景（ここをタップしても閉じる） -->
+    <div id="menu-overlay" class="menu-overlay" onclick="toggleMenu()"></div>
+
+    <!-- サイドメニュー本体 -->
+    <nav id="side-menu" class="side-menu">
+        <div class="menu-header">
+            <span>Menu</span>
+            <!-- 閉じるボタン（後でアイコンに変えてもOK） -->
+            <button class="close-btn" onclick="toggleMenu()">&times;</button>
+        </div>
+        <!-- <ul class="menu-list">
+            <li><a href="#">ホーム</a></li>
+            <li><a href="#">過去の分析ログ</a></li>
+            <li><a href="#">設定</a></li>
+            <li><a href="#">ヘルプ</a></li>
+        </ul> -->
+
+        <div class="menu-dev-section">
+            <p class="dev-label">Development Notes</p>
+            <div class="menu-scroll-box">
+                    <p>これについてのメモ</p>
+                    <p>・ポジネガ、抽象具体、社交内省、時間の指向性、など分析指標を導入したい</p>
+                    <p>・CSSを整える、ResetCSSの導入</p>
+                    <p>・JSファイルわけ</p>
+                    <p>・フォント英数字だけMavenPro（もしくは他）にするか？</p>
+                    <p>・letter-spacingとline-heightの検討</p>
+                    <p>・SVGはダウンロードしてassetsから参照</p>
+                    <p>・カラパレ再構成、他の色にも変えられるようにしたい</p>
+                    <p>・localStorageではなくDatabaseの導入、SupabaseかFirebaseか？</p>
+                    <p>・そもそもVanillaではない環境での制作</p>
+                    <p>・WordCloudの文字サイズ調整</p>
+                    <p>・期間別</p>
+                    <p>・PCのレスポンシブ</p>
+                    <p>・アイコンphospherに</p>
+                    <p>・CSSanimationつけたい</p>
+
+            </div>
+        </div>
+    </nav>
 
     <header>
-        <h1>語彙を集めるメモ</h1>
+
+        <div class="header-content">
+            <!-- メニューを開くアイコン（Phosphor Icons: List） -->
+            <button class="menu-open-btn" onclick="toggleMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 256 256">
+                    <path d="M40,64H216M40,128H216M40,192H216" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="16" />
+                </svg>
+            </button>
+            <h1>語彙を集めるメモ</h1>
+        </div>
+
     </header>
 
     <main class="container">
@@ -58,7 +108,7 @@
 
 
             <div class="analysis-card">
-                <h3>心の天気（感情スコア）</h3>
+                <h3>感情スコア</h3>
                 <div id="sentiment-score" style="font-size: 2.5rem; text-align: center; margin: 15px 0;">--</div>
                 <p id="sentiment-label" style="text-align: center; color: var(--text-sub); font-size: 0.9rem;"></p>
             </div>
