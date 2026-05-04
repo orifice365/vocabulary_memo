@@ -176,7 +176,7 @@ function initTokenizer() {
             return;
         }
         // 辞書ファイルをCDNから読み込む
-        kuromoji.builder({ dicPath: "https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict/" }).build((err, _tokenizer) => {
+kuromoji.builder({ dicPath: "https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict/" }).build((err, _tokenizer) => {
             if (err) {
                 console.error("Kuromojiの読み込みに失敗しました", err);
                 reject(err);
